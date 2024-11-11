@@ -32,7 +32,10 @@ pipeline {
         stage('Deploying Node.js container to Kubernetes') {
             steps {
                 script {
+                    withKubeConfig([credentialsId: 'kubeconfig']) {
                     sh 'kubectl apply -f deployment.yaml'
+                    sh 'kubectl apply -f service.yaml'
+                }
 
                 }
             }
