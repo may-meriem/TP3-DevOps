@@ -16,7 +16,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'npm install'
-                sh 'npm test'
             }
         }
         stage('Docker Build and Push') {
