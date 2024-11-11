@@ -2,9 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_CREDENTIALS_ID = 'dockerhub-credentials'
-        
         DOCKER_IMAGE = 'mayma/nodejs-app'
-       
     }
     stages {
         stage('Checkout') {
@@ -29,7 +27,16 @@ pipeline {
                 }
             }
         }
-        
-        
-   
+    }
+    post {
+        always {
+            echo 'Pipeline execution completed.'
+        }
+        success {
+            echo 'Pipeline executed successfully.'
+        }
+        failure {
+            echo 'Pipeline execution failed.'
+        }
+    }
 }
