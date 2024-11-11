@@ -32,7 +32,8 @@ pipeline {
         stage('Deploying Node.js container to Kubernetes') {
             steps {
                 script {
-                    sh 'deployment.yaml'
+                    sh 'kubectl apply -f deployment.yaml'
+
                 }
             }
         }
