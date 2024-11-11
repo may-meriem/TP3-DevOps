@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/may-meriem/TP3-DevOps.git'
+                git branch: 'main', credentialsId: 'github-credentials', url: 'https://github.com/may-meriem/TP3-DevOps.git'
             }
         }
         stage('Build') {
