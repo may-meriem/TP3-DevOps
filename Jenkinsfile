@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        nodejs '10.19.0' // Ensure this matches the name you provided
+    }
     environment {
         DOCKER_CREDENTIALS_ID = 'dockerhub-credentials'
         DOCKER_IMAGE = 'mayma/nodejs-app'
